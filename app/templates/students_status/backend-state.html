@@ -1,0 +1,143 @@
+
+{% extends 'base2.html' %}
+
+
+<title>{% block title %} سجل حالات الطلبة{% endblock title %}</title>
+
+
+
+{% block content %}
+  
+<div class="container" style="padding-top:50px;">
+     <br><br>
+     <div class="d-flex justify-content-between">
+          <a href="{% url 'add_studentState' %}" class="btn btn-outline-primary btn-sm"> <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة حالات جديدة</a>
+     </div>
+
+     <form action="">
+          <div class="input-group input-group-sm mb-3 mt-4">
+               <input type="text" name="q" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
+               <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
+               <a href="{% url 'backendState' %}" class="btn btn-dark" style="margin-left:2px;"><i class="fas fa-sync-alt"></i></a>
+          </div>
+     </form>
+
+     <center>
+          <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
+               <thead class="table-secondary"> 
+                  <div class="row">
+                    <tr>
+ 
+                         <th class="col-lg-2 col-sm-1" style="width:10%;" colspan="2">Action</th>
+                         <th class="col-lg-2 col-sm-1" style="width:8%;">العام الدراسي</th>
+                         <th class="col-lg-2 col-sm-1" style="width:15%;">الحالة</th>
+                         <th class="col-lg-2 col-sm-1" style="width:10%;">الدراسة </th>
+                         <th class="col-lg-2 col-sm-1" style="width:14%;">المرحلة </th>
+                         <th class="col-lg-2 col-sm-1" style="width:10%;">المحافظة</th> 
+                         <th class="col-lg-2 col-sm-1" style="width:12%;">القسم</th>
+                         <th class="col-lg-2 col-sm-1" style="width:21%;">اسم الطالب/ة</th>
+                    </tr>
+              </div>
+               </thead>
+               {% for std in stdState %}
+               <tr>
+                     <td>
+                         <a href="/studentState/{{std.id}}" class="btn btn-primary " title="Edit patient">
+                              <i class="fas fa-pen"></i>
+                         </a>
+                   
+                         <a class="btn btn-secondary btn-danger" title="Remove patient" data-bs-toggle="modal" data-bs-target="#deleteModal{{std.pk}}">
+                              <i class="fas fa-trash-alt"></i>
+                         </a>
+                     </td>
+                      <td></td>  
+                    <td>{{std.year}}</td>
+                    <td>{{std.state}}</td>
+                    <td>{{std.study}}</td>
+                    <td>{{std.stage}}</td>
+                    <td>{{std.Cname}}</td>
+                    <td>{{std.Dname}}</td>
+                    <td >{{std.name}}</td> 
+               </tr>
+             <div class="modal fade" id="deleteModal{{std.pk}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel"><i class="fas fa-trash"></i>&nbsp;&nbsp;  حذف الحالة</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+         <span class="text-danger"><i class="fas fa-trash-alt fa-3x mt-4"></i></span>
+        <div class="mt-4 mb-4 text-danger">هل انت متأكد انك تريد حذف الحالة</div>
+        <span class="text-dark mt-3 mb-2">الطالب/ة: <strong>{{std.name}}</strong></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">الغاء</button>
+        <a href="/delete_studentState/{{std.id}}" type="button" class="btn btn-danger btn-sm">حذف</a>
+      </div>
+    </div>
+  </div>
+     </div>
+
+               {% endfor %}
+          </table>
+     </center>
+
+     <!-- Button trigger modal -->
+
+<!-- Modal -->
+
+     <!-- Pagination -->
+
+      <nav class="mt-4" aria-label="page navigation example">
+          {% if stdState.has_other_pages %}
+          <ul class="pagination justify-content-left">
+               {% if stdState.has_previous %}
+               <a href="?page=1" class="btn btn-outline-primary mb-4" style="width:60px; border-radius:1px; border:1px solid #d3d3d3">First</a>
+               <li class="page-item"> <a class="page-link" href="?page= {{stdState.previous_page_number}}"><i class="fas fa-angle-double-left"></i></a></li>
+               {% else %}
+               <li class="page-item disabled"></li>
+               {% endif %}
+
+               {% for i in stdState.paginator.page_range %}
+               {% if stdState.number == i %}
+               <li class="page-item active"><span class="page-link">{{i}}<span class="sr-only"></span></span></li>
+               {% else %}
+               <li class="page-item"><a href="?page={{i}}" class="page-link">{{ i }}</a></li>
+               {% endif %}
+               {% endfor %}
+
+               {% if stdState.has_next %}
+               <li class="page-item"><a href="?page={{stdState.next_page_number}}" class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
+               <a href="?page={{stdState.paginator.num_pages}}" class="btn btn-outline-primary mb-4" style="width:60px; border-radius:1px; border:1px solid #d3d3d3; border-left: none;">Last</a>
+               {% else %}
+               <li class="page-item disabled"></li>
+               {% endif %}
+          </ul>
+          {% endif %}
+
+
+       
+          </nav>
+
+    <br> <br>
+     {% for message in messages %}
+     {% if message.tags == 'success' %}
+    
+
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <script>
+          var n = "{{ message }}";
+          Swal.fire("Perfect !",n,"success")
+          
+     </script>
+     {% endif %}
+
+{% endfor %}
+     </div>
+     
+{% endblock content %}
+
+
+

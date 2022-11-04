@@ -1,0 +1,108 @@
+{% extends 'base2.html' %}
+
+
+<title>{% block title %} اضافة وثيقة {% endblock title %}</title>
+
+
+
+<!-- Patients -->
+{% block navbar-content %}
+     <i class="fas fa-user-plus"></i> اضافة وثيقة
+{% endblock navbar-content %}
+<!--end Patients -->
+
+
+
+<!-- button logut -->
+{% block nav-btn %}
+<a href="{% url 'logout' %}"  class="btn btn-outline-danger text-light border-light btn-sm" id="btn-nav">logout</a>
+{% endblock nav-btn %}
+<!--end button logut -->
+
+{% block content %}
+
+     <div class="container" style="padding-top:50px;">
+          <div class="row">
+               <div class="col-lg-12 col-sm-12">
+                    <div class="card card-body border-dark  mt-5">
+                         <span class="text-center">{% block card-title %}<span class="text-primary">أملئ الحقول بالمعلومات الصحيحة</span>{% endblock card-title %}</span>
+                    </div>
+                    <!-- FORM -->
+                    <form {% block Action %} action="/add_studentDoc/" {% endblock Action %} method="POST" enctype="multipart/form-data" class="card p-1 porder-dark mt-1">
+                         {% csrf_token %}
+                         <div class="input-group input-group-sm mb-3">
+                              
+                              <input type="text" class="form-control" hidden name="user" id="user" value="{{user.user}}" required  {% block value-user %}{% endblock value-user %}>
+                         </div>
+                         <div class="input-group input-group-sm mb-3">
+                              
+                              <input type="text" class="form-control text-end" name="name" id="name" placeholder="اسم الطالب/ة" required  {% block value-name %}{% endblock value-name %}>
+                              <span class="input-group-text side-label ">الاسم</span>
+                         </div>
+
+                         <div class="input-group input-group-sm mb-3">
+                             
+                              <input type="text" class="form-control text-end"  name="depart" id="depart" value="{{user.Dname}}" placeholder="القسم الذي تخرج منه" required {% block value-depart %}{% endblock value-depart %}>
+                               <span class="input-group-text side-label text-end">القسم</span>
+                         </div>
+
+                         <div class="input-group input-group-sm mb-3">
+                             
+                              <input type="text" class="form-control text-end"  name="city" id="city" value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city %}{% endblock value-city %}>
+                               <span class="input-group-text side-label text-center">المحافظة</span>
+                         </div>
+
+                         <div class="input-group input-group-sm mb-3">
+                            
+                              <input type="text" class="form-control text-end" name="year" maxlength="10" id="year" placeholder="سنة التخرج" required {% block value-year %}{% endblock value-year %}>
+                                <span class="input-group-text side-label text-center">سنة التخرج</span>
+                         </div>
+
+                           <div class="input-group input-group-sm mb-3">
+                             
+                              <input type="text" class="form-control text-end" name="to"  id="to" placeholder="الجهة الصادر اليها الوثيقة" required {% block value-to %}{% endblock value-to %}>
+                               <span class="input-group-text side-label text-center"> الى </span>
+                         </div>
+
+                          <div class="input-group input-group-sm mb-3">
+                            
+                              <input type="number" class="form-control text-end" name="Dnumber" maxlength="5" id="Dnumber" placeholder="العدد" required {% block value-Dnumber %}{% endblock value-Dnumber %}>
+                                <span class="input-group-text side-label text-center">رقم الوثيقة</span>
+                          </div>
+
+                           <div class="input-group input-group-sm mb-3">
+                           
+                              <input type="date" class="form-control" name="Ddate"  id="Ddate"  required {% block value-Ddate %}{% endblock value-Ddate %}>
+                                 <span class="input-group-text side-label text-center">تاريخ الوثيقة</span>
+                         </div>
+
+                        
+                      
+
+
+                         <div class="form-group">
+                              <textarea class="form-control" name="note" id="note"   rows="7" placeholder="Discription is optional...">{% block value-note %}{% endblock value-note %}</textarea>
+                         </div>
+
+                         <div class="d-grid gap-2 mt-3">
+                              <button type="submit" class="btn btn-primary btn-sm"  id="btn-add">
+                                  {% block btn-content %} <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة {% endblock btn-content %}
+                              </button>
+
+                              <!-------- button reset denied here-->
+                              {% block btn-reset %} {% endblock btn-reset %}
+
+                              <a href="{% url 'backend' %}" class="btn btn-dark btn-sm"><i class="fas fa-chevron-left"></i>&nbsp;&nbsp; Back</a>   
+                        
+                         </div>
+
+                         {% block Id-hidden %}{% endblock Id-hidden %}
+
+
+
+                    </form>
+               </div>
+          </div>
+          </div>
+
+{% endblock content %}
