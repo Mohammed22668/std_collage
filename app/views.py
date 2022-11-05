@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.core.paginator import Paginator
+
 # Create your views here.
 
 
@@ -224,3 +225,32 @@ def delete_studentState(request, std_id):
     messages.success(request, 'تم الحذف ! ...')
 
     return HttpResponseRedirect('/backendState/')
+
+
+##################### Notifications #########################
+
+def notification(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+
+        user = request.user.userprofile
+        all_post = Notifications.objects.filter(
+            Q(title__icontains=q) | Q(get_from=q) | Q(
+                note=q) | Q(year=q) 
+        ).order_by('-created_at')
+    else:
+        user = request.user.userprofile
+        dname = Department.objects.all().filter(Dname="الكل")
+        cname = City.objects.all().filter(Cname="الكل")
+        all_post = Notifications.objects.all().filter(
+            Dname__in=[user.Dname, dname[0]], Cname__in=[user.Cname, cname[0]]).order_by('-created_at')
+        
+    paginator = Paginator(all_post, 5)
+    page = request.GET.get('page')
+    all_students_state = paginator.get_page(page)
+    context = {
+        'all_post': all_students_state,
+        'user': user,
+    }
+    
+    return render(request,'notifications/notfications.html',context)

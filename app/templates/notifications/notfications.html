@@ -1,0 +1,57 @@
+{% extends 'base2.html' %}
+
+<title>{% block title %} الاشعارات/ التعميم{% endblock title %}</title>
+
+
+
+{% block content %}
+
+<div class="container" style="padding-top:50px;">
+     <br><br>
+        <!--1 this section for search icon -->
+       <form action="">
+          <div class="input-group input-group-sm mb-3 mt-4">
+               <input type="text" name="q" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
+               <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
+               <a href="{% url 'notification' %}" class="btn btn-dark" style="margin-left:2px;"><i class="fas fa-sync-alt"></i></a>
+          </div>
+     </form>
+      <!--1 End -->
+
+      <!-- 2 Table -->
+
+       <center>
+          <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
+               <thead class="table-secondary"> 
+                  <div class="row">
+                    <tr>
+                         <th class="col-lg-2 col-sm-12" style="width:10%;" >Action</th>
+                         <th class="col-lg-2 col-sm-12" style="width:14%;">الملاحظات</th>
+                         <th class="col-lg-2 col-sm-12" style="width:14%;">العام الدراسي</th>
+                         <th class="col-lg-2 col-sm-12" style="width:10%;">تاريخ التنفيذ</th>
+                         <th class="col-lg-2 col-sm-12" style="width:12%;">الجهة</th>
+                         <th class="col-lg-2 col-sm-12" style="width:21%;">العنوان</th>
+                    </tr>
+              </div>
+               </thead>
+               {% for post in all_post %}
+               <tr>
+                     <td>
+                         <a href="{{post.file.url}}" class="btn btn-primary " title="show img">
+                              <i class="fas fa-link">&nbsp;&nbsp; Show  </i>
+                         </a>
+                    </td>
+
+                    <td>{{post.note}}</td>
+                    <td>{{post.year}}</td>
+                    <td>{{post.date | date:'m/d/Y'}}</td>
+                    <td>{{post.get_from}}</td>
+                    <td>{{post.title}}</td>
+                   
+               {% endfor %}
+          </table>
+     </center>
+
+     </div>
+
+{% endblock content %}

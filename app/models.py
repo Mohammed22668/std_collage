@@ -3,6 +3,7 @@ from email.policy import default
 from tabnanny import verbose
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 ########################################################################
@@ -54,7 +55,7 @@ class StudentDocument(models.Model):
 # Department,on_delete=models.PROTECT,    
 # City,on_delete=models.PROTECT
 
-######################################################################################
+################################# User Profile  #####################################################
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.PROTECT,verbose_name="اسم المستخدم")
     Dname = models.ForeignKey(Department,on_delete=models.PROTECT,verbose_name="القسم")
@@ -68,7 +69,7 @@ class UserProfile(models.Model):
         verbose_name_plural = "بروفايل المستخدمين"
     
     
-##################################################################################
+################################ Status for students ##################################################
 
 class StudentStatus(models.Model):
     state_list = (
@@ -110,6 +111,32 @@ class StudentStatus(models.Model):
     class Meta:
         verbose_name_plural = "حالات الطلبة"
         
+        
+        
+####################### Notifications class  #####################################        
+class Notifications(models.Model):
+    title = models.CharField(max_length=200, verbose_name="العنوان")
+    Dname = models.ForeignKey(Department,verbose_name="القسم",on_delete=models.PROTECT)
+    Cname = models.ForeignKey(City, verbose_name="المحافظة", on_delete=models.PROTECT)
+    get_from = models.CharField(max_length=200, verbose_name="الجهة")
+    year = models.CharField(max_length=200, verbose_name="العام الدراسي")
+    date = models.DateField(verbose_name="تاريخ التنفيذ", null=True, blank=True)
+    note = models.TextField(verbose_name="الملاحظات", null=True, blank=True)
+    file = models.FileField(upload_to='files/%y/%m',null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural='التعميم/الاشعارات'
+        
+    
+        
+        
+    
     
        
 

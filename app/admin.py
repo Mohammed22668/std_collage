@@ -1,12 +1,16 @@
 from django.contrib import admin
-from .models import Patient , Department , City , StudentDocument , UserProfile ,StudentStatus
+from .models import *
 from import_export.admin import ImportExportModelAdmin
 # Register your models here.
-# class AdminPatient(admin.ModelAdmin):
-#     list_display=['name','phone','email','age','gender','created_at']
-#     search_fields=['name','phone','email','age','gender']
-#     list_per_page=8
 
+
+
+class NotificationsAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ['title', 'Dname', 'Cname', 'get_from', 'year', 'note']
+    list_display_links = ['title']
+    list_filter = ['title', 'Dname', 'Cname', 'get_from', 'year', 'note']
+    search_fields = ['title', 'Dname', 'Cname', 'get_from', 'year', 'note']
+    list_per_page = 25
 
 # admin.site.register(Patient,AdminPatient)
 class DocumentAdmin(ImportExportModelAdmin, admin.ModelAdmin):
@@ -26,6 +30,7 @@ class StateAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     
 admin.site.register(StudentDocument,DocumentAdmin)
 admin.site.register(StudentStatus,StateAdmin)
+admin.site.register(Notifications,NotificationsAdmin)
 admin.site.register(Department)
 admin.site.register(City)
 admin.site.register(UserProfile)
