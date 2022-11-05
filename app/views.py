@@ -33,6 +33,7 @@ def backend(request):
         ).order_by('-created_at')
     else:
         user = request.user.userprofile
+        
         all_student_list = StudentDocument.objects.all().filter(user=user.user,Dname=user.Dname,Cname=user.Cname).order_by('-created_at')
     paginator = Paginator(all_student_list, 10)
     page = request.GET.get('page')
