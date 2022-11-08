@@ -8,7 +8,7 @@
 
 {% block content %}
   
-<div class="container" style="padding-top:50px;">
+<div class="container" style="padding-top:10px;">
      <br><br>
      <div class="d-flex justify-content-between">
           <a href="{% url 'add_studentState' %}" class="btn btn-outline-primary btn-sm"> <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة حالات جديدة</a>
@@ -28,7 +28,7 @@
                   <div class="row">
                     <tr>
  
-                         <th class="col-lg-2 col-sm-1" style="width:10%;" colspan="2">Action</th>
+                         <th class="col-lg-2 col-sm-1" style="width:10%;" colspan="1">Action</th>
                          <th class="col-lg-2 col-sm-1" style="width:8%;">العام الدراسي</th>
                          <th class="col-lg-2 col-sm-1" style="width:15%;">الحالة</th>
                          <th class="col-lg-2 col-sm-1" style="width:10%;">الدراسة </th>
@@ -50,7 +50,7 @@
                               <i class="fas fa-trash-alt"></i>
                          </a>
                      </td>
-                      <td></td>  
+                       
                     <td>{{std.year}}</td>
                     <td>{{std.state}}</td>
                     <td>{{std.study}}</td>

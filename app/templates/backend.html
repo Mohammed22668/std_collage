@@ -11,7 +11,7 @@
 
 {% block content %}
   
-<div class="container" style="padding-top:50px;">
+<div class="container" style="padding-top:10px;">
      <br><br>
      <div class="d-flex justify-content-between">
           <a href="{% url 'add_studentDoc' %}" class="btn btn-outline-primary btn-sm"> <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة وثائق الطلبة</a>
@@ -30,37 +30,38 @@
                <thead class="table-secondary"> 
                   <div class="row">
                     <tr>
-                         <th class="col-lg-2 col-sm-1" style="width:21%;">اسم الطالب/ة</th>
-                         <th class="col-lg-2 col-sm-1" style="width:12%;">القسم</th>
-                         <th class="col-lg-2 col-sm-1" style="width:10%;">المحافظة</th>
-                         <th class="col-lg-2 col-sm-1" style="width:14%;">سنة التخرج</th>
-                         <th class="col-lg-2 col-sm-1" style="width:15%;">الى</th>
-                         <th class="col-lg-2 col-sm-1" style="width:8%;">رقم الوثيقة</th>
+                         <th class="col-lg-2 col-sm-1" style="width:10%;" colspan="1">Action</th>
                          <th class="col-lg-2 col-sm-1" style="width:10%;">تاريخ الوثيقة</th>
-                         <th class="col-lg-2 col-sm-1" style="width:10%;" colspan="2">Action</th>
+                         <th class="col-lg-2 col-sm-1" style="width:8%;">رقم الوثيقة</th>
+                         <th class="col-lg-2 col-sm-1" style="width:15%;">الى</th>
+                         <th class="col-lg-2 col-sm-1" style="width:14%;">سنة التخرج</th>
+                         <th class="col-lg-2 col-sm-1" style="width:10%;">المحافظة</th>
+                         <th class="col-lg-2 col-sm-1" style="width:12%;">القسم</th>
+                         <th class="col-lg-2 col-sm-1" style="width:21%;">اسم الطالب/ة</th>
                     </tr>
-              </div>
-               </thead>
+                    </div>
+                    </thead>
                {% for std in studentDoc %}
                <tr>
-                    <td style="text-align:cnter;">{{std.name}}</td>
-                    <td>{{std.Dname}}</td>
-                    <td>{{std.Cname}}</td>
-                    <td>{{std.graduate_year}}</td>
-                    <td>{{std.to}}</td>
-                    <td>{{std.Dnumber}}</td>
-                   
-                    <td>{{std.Ddate | date:'m/d/Y' }}</td>
                     <td>
                          <a href="/studentDoc/{{std.id}}" class="btn btn-primary " title="Edit patient">
                               <i class="fas fa-pen"></i>
                          </a>
-                   
                          <a class="btn btn-secondary btn-danger" title="Remove state" data-bs-toggle="modal" data-bs-target="#deleteModal{{std.pk}}">
                               <i class="fas fa-trash-alt"></i>
-                         </a>
-                    </td>
+                    </a>
+               </td>
+                    <td>{{std.Ddate | date:'m/d/Y' }}</td>
+                    <td>{{std.Dnumber}}</td>
+                    <td>{{std.to}}</td>
+                    <td>{{std.graduate_year}}</td>
+                    <td>{{std.Cname}}</td>
+                    <td>{{std.Dname}}</td>
+                    <td style="text-align:cnter;">{{std.name}}</td>
                </tr>
+
+
+
 <div class="modal fade" id="deleteModal{{std.pk}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
      <div class="modal-dialog">
           <div class="modal-content">
@@ -80,11 +81,13 @@
           </div>
      </div>
 </div>
-     
+   
                {% endfor %}
-          </table>
+              
+                </table>
+            
      </center>
-
+ 
      <!-- Button trigger modal -->
 
 <!-- Modal -->

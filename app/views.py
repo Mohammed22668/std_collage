@@ -27,10 +27,13 @@ def backend(request):
         q = request.GET['q']
         
         user = request.user.userprofile
+        
         all_student_list = StudentDocument.objects.filter(
             Q(name__icontains=q) | Q(graduate_year=q) | Q(
                 to=q) | Q(Dnumber=q)
         ).order_by('-created_at')
+        all_student_list=all_student_list.filter(Dname=user.Dname,Cname=user.Cname,user=user.user)
+        
     else:
         user = request.user.userprofile
         
@@ -170,12 +173,15 @@ def backendState(request):
         user = request.user.userprofile
         all_student_list = StudentStatus.objects.filter(
             Q(name__icontains=q) | Q(state=q) | Q(
-                stage=q) | Q(study=q)
+                stage=q) | Q(study=q) 
         ).order_by('-created_at')
+        all_student_list=all_student_list.filter(Dname=user.Dname,Cname=user.Cname,user=user.user)
+        
     else:
         user = request.user.userprofile
         all_student_list = StudentStatus.objects.all().filter(
             user=user.user, Dname=user.Dname, Cname=user.Cname).order_by('-created_at')
+        
     paginator = Paginator(all_student_list, 5)
     page = request.GET.get('page')
     all_students_state = paginator.get_page(page)
@@ -239,6 +245,10 @@ def notification(request):
             Q(title__icontains=q) | Q(get_from=q) | Q(
                 note=q) | Q(year=q) 
         ).order_by('-created_at')
+        dname = Department.objects.all().filter(Dname="الكل")
+        cname = City.objects.all().filter(Cname="الكل")
+        all_post = all_post.filter(Dname__in=[user.Dname, dname[0]], Cname__in=[user.Cname, cname[0]])
+        
     else:
         user = request.user.userprofile
         dname = Department.objects.all().filter(Dname="الكل")

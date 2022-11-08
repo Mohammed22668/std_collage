@@ -1,0 +1,45 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/dashbord_style.css' %}">  
+<div class="sidebar">
+  <div class="logo-details">
+      <div class="logo_name" > Welcome : {{user.user}}</div>
+      <i class='bx bx-menu' id="btn" ></i>
+  </div>
+  <ul class="nav-list">
+   
+    <li>
+      <a href="/backend/">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">اضافة وثائق الطلبة</span>
+      </a>
+       <span class="tooltip">Dashboard</span>
+    </li>
+    <li>
+      <a href="/backendState/">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">حالات الطلبة</span>
+      </a>
+      <span class="tooltip">User</span>
+    </li>
+   <li>
+     <a href="/notifications/">
+       <i class='bx bx-folder' ></i>
+       <span class="links_name">التعميم/الاشعارات</span>
+     </a>
+     <span class="tooltip">Files</span>
+   </li>
+   <li>
+     <a href="#">
+       <i class='bx bx-cog' ></i>
+       <span class="links_name">Setting</span>
+     </a>
+     <span class="tooltip">Setting</span>
+   </li>
+   <li class="profile">
+       <div class="profile-details">
+        <a  class="btn btn-outline-danger text-light border-light " id="btn-nav" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-log-out' id="log_out" ></i> Logout</a>
+
+       
+   </li>
+  </ul>
+</div>
