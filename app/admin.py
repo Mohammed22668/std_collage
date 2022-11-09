@@ -4,6 +4,13 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
 
+class TasjilAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ['name','Dname', 'Cname','study','year_grad','to','docType','note','img']
+    list_display_links = ['name','Dname', 'Cname','study']
+    list_filter = ['name','Dname', 'Cname','study','year_grad','to','docType']
+    search_fields = ['name','Dname', 'Cname','study','year_grad','to','docType', 'note']
+    list_per_page = 30
+
 
 class NotificationsAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ['title', 'Dname', 'Cname', 'get_from', 'year', 'note']
@@ -34,3 +41,4 @@ admin.site.register(Notifications,NotificationsAdmin)
 admin.site.register(Department)
 admin.site.register(City)
 admin.site.register(UserProfile)
+admin.site.register(TasjilDocuments,TasjilAdmin)

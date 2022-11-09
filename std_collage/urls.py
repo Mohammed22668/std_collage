@@ -1,10 +1,11 @@
 from xml.etree.ElementInclude import include
 from django.contrib import admin
+from django.urls import re_path
 from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
 from app import views
-
+from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -16,6 +17,10 @@ urlpatterns = [
     path('studentDoc/<str:std_id>', views.studentDoc,name="studentDoc"),
     path('edit_studentDoc/',views.edit_studentDoc,name='edit_studentDoc'),
     
+    
+    #
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    #
     # urls for state 
     path('add_studentState/', views.add_studentState, name="add_studentState"),
     path('backendState/', views.backendState, name='backendState'),
