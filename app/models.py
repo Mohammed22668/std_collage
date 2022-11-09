@@ -134,8 +134,36 @@ class Notifications(models.Model):
         verbose_name_plural='التعميم/الاشعارات'
         
     
+###########################################################
+class TasjilDocuments(models.Model):
+    list_study = (
+        ("الصباحية","الصباحية"),
+        ("المسائية","المسائية"),
+    )
+    list_type = (
+        ("وثيقة بالدرجات","وثيقة بالدرجات"),
+        ("وثيقة بالتسلسل","وثيقة بالتسلسل"),
+        ("وثيقة بالمعدل","وثيقة بالمعدل"),
+    )
+    name = models.CharField(max_length=200, verbose_name="الاسم")
+    Dname = models.ForeignKey(Department,on_delete=models.PROTECT,verbose_name="القسم")  
+    Cname = models.ForeignKey(City,on_delete=models.PROTECT,verbose_name="المحافظة")
+    study = models.CharField(max_length=50,verbose_name="الدراسة",choices=list_study)
+    year_grad = models.CharField(max_length=50, verbose_name="سنة التخرج")
+    to = models.CharField(max_length=300,verbose_name="الجهة/الى")
+    docType = models.CharField(max_length=50,verbose_name="نوع الوثيقة",choices=list_type)
+    note = models.TextField(null=True,blank=True)
+    img = models.ImageField(upload_to="TasjilDocument/%y/%m",null=True,blank=True)
+    
+    
+    def __str__(self):
+        return str(self.name)
+    
+    class Meta:
+        verbose_name_plural = "وثائق التسجيل العام"
         
         
+            
     
     
        
