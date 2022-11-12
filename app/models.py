@@ -34,9 +34,14 @@ class City(models.Model):
     
 
 class StudentDocument(models.Model):
+    study_list = (
+        ("الصباحية", "الصباحية"),
+        ("المسائية", "المسائية"),
+    )
     user = models.CharField(max_length=100,verbose_name="اسم المستخدم")
     name = models.CharField(max_length=100,verbose_name="اسم الطالب/ة" )
     Dname = models.CharField(max_length=100,verbose_name="القسم")
+    study = models.CharField(max_length=20,verbose_name="الدراسة", choices=study_list,null=True,blank=True)
     Cname = models.CharField(max_length=100,verbose_name="المحافظة")
     graduate_year = models.CharField(max_length=100,verbose_name="سنة التخرج")
     to = models.CharField(max_length=250 , verbose_name="الجهة المصدر اليها")
@@ -89,9 +94,6 @@ class StudentStatus(models.Model):
     study_list = (
         ("الصباحية", "الصباحية"),
         ("المسائية", "المسائية"),
-       
-       
-
     )
     user = models.CharField(max_length=100, verbose_name="اسم المستخدم")
     name = models.CharField(max_length=100, verbose_name="اسم الطالب/ة")
@@ -134,6 +136,40 @@ class Notifications(models.Model):
         verbose_name_plural='التعميم/الاشعارات'
         
     
+###########################################################
+## for all departments
+
+class AllStudents(models.Model):
+   
+    stage_list = (
+        ("الاولى", "الاولى"),
+        ("الثانية", "الثانية"),
+        ("الثالثة", "الثالثة"),
+        ("الرابعة", "الرابعة"),
+        
+    )
+    study_list = (
+        ("الصباحية", "الصباحية"),
+        ("المسائية", "المسائية"),
+    )
+    user = models.CharField(max_length=100, verbose_name="اسم المستخدم")
+    name = models.CharField(max_length=100, verbose_name="اسم الطالب/ة")
+    Dname = models.CharField(max_length=100, verbose_name="القسم")
+    Cname = models.CharField(max_length=100, verbose_name="المحافظة")
+    stage = models.CharField(max_length=50, verbose_name="المرحلة", choices=stage_list,)
+    state = models.BooleanField(max_length=100, verbose_name="مباشرة",default=True,null=True,blank=True)
+    date = models.DateField(verbose_name="تاريخ المباشرة",null=True,blank=True)
+    year = models.CharField(max_length=50, verbose_name="العام الدراسي")
+    study = models.CharField(max_length=20,verbose_name="الدراسة", choices=study_list,null=True)
+    note = models.TextField(blank=True, null=True, verbose_name="الملاحظات")
+    img = models.ImageField(upload_to="%y/%m",null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return str(self.name)
+    
+    class Meta:
+        verbose_name_plural = 'مباشرات الطلبة'
 ###########################################################
 class TasjilDocuments(models.Model):
     list_study = (
