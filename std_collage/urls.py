@@ -8,7 +8,7 @@ from app import views
 from django.views.static import serve
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('userAdminpnl/', admin.site.urls),
     path('', views.frontend , name='frontend'), # Home page
     path('login/',include('django.contrib.auth.urls')),
     path('backend/', views.backend,name='backend'),
