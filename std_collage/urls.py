@@ -33,6 +33,11 @@ urlpatterns = [
     # notification
     path('notifications/', views.notification, name="notification"),
     
+    ######################### All student ##########################
+    path('add_allstudent/',views.add_allstudent,name="add_allstudent"),
+    path('backend-allstudents/',views.backend_all_student,name="backend_all_student"),
+    
+    
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
