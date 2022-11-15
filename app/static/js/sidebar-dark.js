@@ -2,6 +2,7 @@ const body = document.querySelector('body'),
       sidebar = body.querySelector('nav'),
       searchBtn = body.querySelector(".search-box"),
       modeSwitch = body.querySelector(".toggle-switch"),
+      move = body.querySelector(".menu-bar"),
       modeText = body.querySelector(".mode-text");
       let toggle = document.querySelector("#btn");
 
@@ -12,7 +13,9 @@ const body = document.querySelector('body'),
 searchBtn.addEventListener("click" , () =>{
     sidebar.classList.remove("close");
 })
-
+move.addEventListener("click" , () =>{
+    sidebar.classList.remove("close");
+})
 modeSwitch.addEventListener("click" , () =>{
     body.classList.toggle("dark");
     
