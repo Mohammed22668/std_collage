@@ -50,3 +50,41 @@ html , body {
 select, option {
     text-align:right;   
 }
+
+/* -------------------------------
+--------------RESPONSIVE MODE ------------------- */
+@media (max-width:1024px){
+    /*--TABLE--*/
+   .table thead {
+    display: none;
+   }
+   .table, .table tbody, .table tr, table td {
+      display:block;
+      width:100%;
+   }
+   .table tr {
+    margin-bottom: 15px;
+    border: 1px solid #111;
+    border-radius: 5px;
+   }
+   .table td {
+    text-align: right;
+    padding-left: 35%;
+    position: relative;
+    border:1px solid transparent;
+   }
+   .table td::before {
+    content:attr(data-table) ;
+    position: absolute;
+    left: 0;
+    width:50%;
+    padding-left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+   }
+   .table > thead > tr:first-child{
+    display: none;
+    margin-top: 5px;
+   } 
+}

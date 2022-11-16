@@ -10,7 +10,7 @@
 :root{
     /* ===== Colors ===== */
     --body-color: white ;
-    --sidebar-color: steelblue;
+    --sidebar-color:steelblue;
     --primary-color: cornflowerblue;
     --primary-color-light: #F6F5FF;
     --toggle-color: rgb(238, 236, 236);
@@ -174,6 +174,18 @@ body.dark .sidebar header .toggle{
 }
 
 .sidebar li.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+.sidebar.menu-bar{
     height: 100%;
     width: 100%;
     outline: none;

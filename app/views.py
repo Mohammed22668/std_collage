@@ -265,3 +265,70 @@ def notification(request):
     }
     
     return render(request,'notifications/notfications.html',context)
+
+
+################################ All student ###############################
+@cache_control(no_cache=True , must_revalidate=True,no_store=True)
+@login_required(login_url='login')
+def add_allstudent(request):
+    if request.method == 'POST':
+        user = request.user.userprofile
+        if request.POST.get('name') \
+            and request.POST.get('user') \
+            and request.POST.get('depart') \
+            and request.POST.get('city') \
+            and request.POST.get('year') \
+            and request.POST.get('stage') \
+            and request.POST.get('study') \
+            and request.POST.get('state') \
+            and request.POST.get('date') \
+                or request.POST.get('note'):
+            allStudents = AllStudents()
+            allStudents.name = request.POST.get('name')
+            allStudents.user = request.POST.get('user')
+            allStudents.Dname = request.POST.get('depart')
+            allStudents.Cname = request.POST.get('city')
+            allStudents.year = request.POST.get('year')
+            allStudents.stage = request.POST.get('stage')
+            allStudents.study = request.POST.get('study')
+            allStudents.state = request.POST.get('state')
+            allStudents.date = request.POST.get('date')
+            allStudents.note = request.POST.get('note')
+            allStudents.save()
+            messages.success(request, 'تمت الاضافة بنجاح !')
+            return HttpResponseRedirect('/backend-allstudents/')
+    else:
+        user = request.user.userprofile
+        context={
+            'user':user,
+        }
+        return render(request, 'AllStudents/add_allstudent.html', context)
+    
+###################################
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='login')
+def backend_all_student(request):
+
+    if 'q' in request.GET:
+        q = request.GET['q']
+
+        user = request.user.userprofile
+        all_student_list = AllStudents.objects.filter(
+            Q(name__icontains=q) | Q(state=q) | Q(
+                stage=q) | Q(study=q) 
+        ).order_by('-created_at')
+        all_student_list=all_student_list.filter(Dname=user.Dname,Cname=user.Cname,user=user.user)
+        
+    else:
+        user = request.user.userprofile
+        all_student_list = AllStudents.objects.all().filter(
+            user=user.user, Dname=user.Dname, Cname=user.Cname).order_by('-created_at','stage')
+        
+    paginator = Paginator(all_student_list, 5)
+    page = request.GET.get('page')
+    all_students = paginator.get_page(page)
+    context = {
+        'allstd': all_students,
+        'user': user,
+    }
+    return render(request, 'AllStudents/backend-allstudents.html', context)    
