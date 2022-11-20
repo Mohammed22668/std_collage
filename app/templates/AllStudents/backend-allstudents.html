@@ -18,7 +18,7 @@
           <div class="input-group input-group-sm mb-3 mt-4">
                <input type="text" name="q" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
                <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
-               <a href="{% url 'backendState' %}" class="btn btn-dark" style="margin-left:2px;"><i class="fas fa-sync-alt"></i></a>
+               <a href="{% url 'backend_all_student' %}" class="btn btn-dark" style="margin-left:2px;"><i class="fas fa-sync-alt"></i></a>
           </div>
      </form>
 
@@ -43,7 +43,7 @@
                {% for std in allstd %}
                <tr>
                      <td>
-                         <a href="/#/{{std.id}}" class="btn btn-primary " title="Edit patient">
+                         <a href="/all_student/{{std.id}}" class="btn btn-primary " title="Edit patient">
                               <i class="fas fa-pen"></i>
                          </a>
                    
@@ -75,7 +75,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">الغاء</button>
-        <a href="/#/{{std.id}}" type="button" class="btn btn-danger btn-sm">حذف</a>
+        <a href="/delete_allstudent/{{std.id}}" type="button" class="btn btn-danger btn-sm">حذف</a>
       </div>
     </div>
   </div>

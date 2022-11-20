@@ -36,9 +36,10 @@ urlpatterns = [
     ######################### All student ##########################
     path('add_allstudent/',views.add_allstudent,name="add_allstudent"),
     path('backend-allstudents/',views.backend_all_student,name="backend_all_student"),
+    path('edit_allstudent/',views.edit_allstudent,name="edit_allstudent"),
+    path('all_student/<str:std_id>', views.all_student, name="allstudent"),
+    path('delete_allstudent/<str:std_id>',views.delete_allstudent,name="delete_allstudent"),
     
-    
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

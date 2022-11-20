@@ -198,11 +198,26 @@ class TasjilDocuments(models.Model):
     class Meta:
         verbose_name_plural = "وثائق التسجيل العام"
         
-        
+#############################################################
+##################### Table for sending data ################
+class SendData(models.Model):
+    title = models.CharField(max_length=200,verbose_name="العنوان")
+    Dname= models.CharField(max_length=100,verbose_name="القسم")
+    Cname = models.CharField(max_length=100,verbose_name="المحافظة")
+    content = models.CharField(max_length=200,verbose_name="المحتوى")
+    notes = models.TextField(null=True,blank=True,verbose_name="الملاحظات")
+    file = models.FileField(upload_to="files/%y/%m",verbose_name="اختيار ملف",null=True,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = "البريد"        
             
     
-    
-       
+
+           
 
 
 

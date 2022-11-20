@@ -2,14 +2,14 @@
 All the script here will extend to all pages
 ---------------------------------------------------*/ 
 
-// 1) 
+// 1) for Add studnets Documents 
 
 
 function validateAll(){
     var name = $("#name").val();
     var depart = $("#depart").val();
     var city = $("#city").val();
-    var year = $("#year").val();
+    var year_std = $("#year").val();
     var to = $("#to").val();
     var Dnumber = $("#Dnumber").val();
     var Ddate = $("#Ddate").val();
@@ -29,7 +29,7 @@ function validateAll(){
         return false
     }
     
-      else if (year == ''){
+      else if (year_std == ''){
         Swal.fire('Oops !',"يجب ملئ حقل سنة التخرج","Error");
         return false
     }
@@ -54,32 +54,59 @@ function validateAll(){
 
 $("#btn-add").bind("click",validateAll);
 
-
-// 2 ) Script name accept only letters
-// $(document).ready(function(){
-//   jQuery('input[name="name]').keyup(function(){
-//     var letter = jQuery(this).val();
-//     var allow = letter.replace(/[^a-zAZ _]/g, '');
-//     jQuery(this).val(allow);
-//   });
-//   $("input").on("keypress", function(e){
-//     if (e.which===32 && ! this.value.length)
-//     e.preventDefault();
-//   });
-
-// });
+// ######################## END #################################
 
 
+// ######################## Start #################################
+// 2 - for Add students status 
+function validateAllstate(){
+    var name = $("#name-state").val();
+    var depart = $("#depart-state").val();
+    var city = $("#city-state").val();
+    var stage = $("#stage-state").val();
+    var study = $("#study-state").val();
+    var state = $("#state-state").val();
+    var year-state = $("#year-state").val();
 
-// // 9 ) first name + last name 
-// $(document).ready(function(){
-//   $("#name").keyup(function(){
-//     var name = $("#name").val();
-//     if (name.split(' ').length == 3){
-//        Swal.fire("Opsss ! ","Put only first and last name.","info");
-//        $("#name").val("");
-//         return false;
-//     }
+    if (name == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل الاسم.","Error");
+        return false
+    }
 
-//   });
-// });
+     else if (depart == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل القسم","Error");
+        return false
+    }
+
+    else if (city == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل المحافظة","Error");
+        return false
+    }
+
+    else if (stage == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل  المرحلة","Error");
+        return false
+    }
+    
+     else if (study == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل  الدراسة","Error");
+        return false
+    }
+  
+      else if (state == ''){
+          Swal.fire('Oops !',"يجب ملئ حقل  الحالة","Error");
+        return false
+    }
+
+        else if (year-state == ''){
+        Swal.fire('Oops !',"يجب ملئ حقل العام الدراسي","Error");
+        return false
+    }
+
+
+    else {
+        return true;
+    }
+}
+
+$("#btn-add-state").bind("click",validateAllstate);

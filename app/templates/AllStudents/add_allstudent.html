@@ -31,31 +31,31 @@
 
                          <div class="input-group input-group-sm mb-3">
                               
-                              <input type="text" class="form-control" hidden name="user" id="user" value="{{user.user}}" required  {% block value-user %}{% endblock value-user %}>
+                              <input type="text" class="form-control" hidden name="user" id="user" value="{{user.user}}" required  {% block value-user-all %}{% endblock value-user-all %}>
                          </div>
 
                          <div class="input-group input-group-sm mb-3">
-                              <input type="text" class="form-control text-end" name="name" id="name" placeholder="اسم الطالب/ة" required  {% block value-name %}{% endblock value-name %}>
+                              <input type="text" class="form-control text-end" name="name" id="name-all" placeholder="اسم الطالب/ة" required  {% block value-name-all %}{% endblock value-name-all %}>
                               <span class="input-group-text side-label ">الاسم</span>
                          </div>
 
                         
-                              <input type="text" class="form-control text-end"  name="depart" hidden id="depart"  value="{{user.Dname}}" placeholder="القسم الذي تخرج منه" required {% block value-depart %}{% endblock value-depart %}>
+                              <input type="text" class="form-control text-end"  name="depart" hidden id="depart-all"  value="{{user.Dname}}" placeholder="القسم الذي تخرج منه" required {% block value-depart-all %}{% endblock value-depart-all %}>
                          
                          
                         
-                              <input type="text" class="form-control text-end"  name="city" hidden id="city" value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city %}{% endblock value-city %}>
+                              <input type="text" class="form-control text-end"  name="city" hidden id="city-all" value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city-all %}{% endblock value-city-all %}>
                        
 
                          <!-- choose stage -->
 
                             <div class="input-group input-group-sm mb-3 ">
                              
-                              <select dir="ltr" class="form-select " name="stage" id="stage" required {% block value-stage %}{% endblock value-stage %}>
+                              <select dir="ltr" class="form-select " name="stage" id="stage-all" required {% block value-stage-all %}{% endblock value-stage-all %}>
                               <label class="input-group-text ">المرحلة</label>
-                                   {% block option-stage %}
+                                   {% block option-stage-all %}
                                    <option style="text-align:left;" value="" hidden>اختر المرحلة</option>
-                                   {% endblock option-stage %}
+                                   {% endblock option-stage-all %}
                                    <option disabled></option>
                                    <option >الاولى</option>
                                    <option >الثانية</option>
@@ -67,10 +67,10 @@
 
                             <div class="input-group input-group-sm mb-3 ">
                              
-                              <select dir="ltr" class="form-select" name="study" id="study" required {% block value-study %}{% endblock value-study %}>
-                                   {% block option-study %}
+                              <select dir="ltr" class="form-select" name="study" id="study-all" required {% block value-study-all %}{% endblock value-study-all %}>
+                                   {% block option-study-all %}
                                    <option style="text-align:left;" value="" hidden>اختر الدراسة</option>
-                                   {% endblock option-study %}
+                                   {% endblock option-study-all %}
                                    <option disabled></option>
                                    <option >الصباحية</option>
                                    <option >المسائية</option>
@@ -83,10 +83,10 @@
 
                           <div class="input-group input-group-sm mb-3 ">
                             
-                              <select dir="ltr" class="form-select" name="state" id="state" required {% block value-state %}{% endblock value-state %}>
-                                    {% block option-state %}
+                              <select dir="ltr" class="form-select" name="state" id="state-all" required {% block value-state-all %}{% endblock value-state-all %}>
+                                    {% block option-state-all %}
                                    <option style="text-align:left;" value="" hidden>اختر حالة المباشرة</option>
-                                    {% endblock option-state %}
+                                    {% endblock option-state-all %}
                                    <option disabled></option>
                                    <option >True</option>
                                    <option >False</option>
@@ -96,27 +96,24 @@
                          
                             <div class="input-group input-group-sm mb-3 "> 
                             
-                              <input type="date" class="form-control text-end" name="date"  id="date" placeholder="تاريخ المباشرة" required {% block value-date %}{% endblock value-date %}>
+                              <input type="date" class="form-control text-end" name="date"  id="date-all" placeholder="تاريخ المباشرة" required {% block value-date-all %}{% endblock value-date-all %}>
                                 <span class="input-group-text side-label text-center"> تاريخ المباشرة </span>
                          </div>
 
                             <div class="input-group input-group-sm mb-3 ">
                             
-                              <input type="text" class="form-control text-end" name="year" maxlength="10" id="year" placeholder="العام الدراسي" required {% block value-year %}{% endblock value-year %}>
+                              <input type="text" class="form-control text-end" name="year" maxlength="10" id="year-all" placeholder="العام الدراسي" required {% block value-year-all %}{% endblock value-year-all %}>
                                 <span class="input-group-text side-label text-center">العام الدراسي </span>
                          </div>
 
-                        
-
-                       
-
+  
                          <div class="form-group">
-                              <textarea class="form-control" name="note" id="note"   rows="7" placeholder="....... الملاحظات">{% block value-note %}{% endblock value-note %}</textarea>
+                              <textarea class="form-control" name="note" id="note"   rows="7" placeholder="....... الملاحظات">{% block value-note-all %}{% endblock value-note-all %}</textarea>
                          </div>
 
 
                          <div class="d-grid gap-2 mt-3">
-                              <button type="submit" class="btn btn-primary btn-sm"  id="btn-add">
+                              <button type="submit" class="btn btn-primary btn-sm"  id="btn-add-all">
                                   {% block btn-content %} <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة {% endblock btn-content %}
                               </button>
 

@@ -1,46 +1,48 @@
-{% extends 'students_status/add_state.html' %}
+{% extends 'AllStudents/add_allstudent.html' %}
 
 
-<title>{% block title %}  حالات الطلبة  {% endblock title %}</title>
+<title>{% block title %}  مباشرات الطالب/ة {% endblock title %}</title>
 
 {% block navbar-content %}
-     <i class="fas fa-user-edit"></i> {{stdState.name}}
+     <i class="fas fa-user-edit"></i> {{allstd.name}}
 {% endblock navbar-content %}
 
-{% block card-title %} Registered at <span class="text-primary"><strong>{{stdState.created_at | date:'m/d/Y' }}</strong></span> {% endblock card-title %}
+{% block card-title %} Registered at <span class="text-primary"><strong>{{allstd.created_at | date:'m/d/Y' }}</strong></span> {% endblock card-title %}
 <!--end Patients -->
 
 
-{% block value-name %} value="{{stdState.name}}" {% endblock value-name %}
+{% block value-name-all %} value="{{allstd.name}}" {% endblock value-name-all %}
 
 
-{% block value-depart %} value="{{user.Dname}}"  {% endblock value-depart %}
+{% block value-depart-all %} value="{{user.Dname}}"  {% endblock value-depart-all %}
 
 
-{% block value-city %} value="{{user.Cname}}"  {% endblock value-city %}
+{% block value-city-all %} value="{{user.Cname}}"  {% endblock value-city-all %}
 
 
-{% block value-year %}  value="{{stdState.year}}"  {% endblock value-year %}
+{% block value-date-all %}  value="{{allstd.date | date:'Y-m-d'}}"  {% endblock value-date-all %}
 
-
-
-
-
-
- {% block option-stage %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{stdState.stage}}</option>{% endblock option-stage %}              
- {% block value-stage %} value="{{stdState.stage}}"   {% endblock value-stage %}
-
-
-  {% block option-study %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{stdState.study}}</option>{% endblock option-study %}              
- {% block value-study %} value="{{stdState.study}}"   {% endblock value-study %}
-
-
-  {% block option-state %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{stdState.state}}</option>{% endblock option-state %}              
- {% block value-state %} value="{{stdState.state}}"   {% endblock value-state %}
+{% block value-year-all %}  value="{{allstd.year}}"  {% endblock value-year-all %}
 
 
 
-{% block value-note %}{{stdState.note}}{% endblock value-note %}
+
+
+
+ {% block option-stage-all %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{allstd.stage}}</option>{% endblock option-stage-all %}              
+ {% block value-stage-all %} value="{{allstd.stage}}"   {% endblock value-stage-all %}
+
+
+  {% block option-study-all %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{allstd.study}}</option>{% endblock option-study-all %}              
+ {% block value-study-all %} value="{{allstd.study}}"   {% endblock value-study-all %}
+
+
+  {% block option-state-all %} <option  style="background-color:#d3d3d3; color:red; font-weight:bold;">{{allstd.state}}</option>{% endblock option-state-all %}              
+ {% block value-state-all %} value="{{allstd.state}}"   {% endblock value-state-all %}
+
+
+
+{% block value-note-all %}{{allstd.note}}{% endblock value-note-all %}
 
 
 {% block btn-content %} <i class="fas fa-hdd"></i>&nbsp;&nbsp; Save {% endblock btn-content %}
@@ -51,13 +53,13 @@
 
 
 
-{% block Action %} action="/edit_studentState/" {% endblock Action %}
+{% block Action %} action="/edit_allstudent/" {% endblock Action %}
 
  
 
 
 
 {% block Id-hidden %}
-<input type="hidden" name="id"  value="{{stdState.id}}">
+<input type="hidden" name="id"  value="{{allstd.id}}">
 {% endblock Id-hidden %}
 

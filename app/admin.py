@@ -43,6 +43,16 @@ class AllStudentsAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ['name', 'Dname', 'Cname', 'study','stage','date','year']
     list_per_page: 25
     
+    
+class SendDataAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    list_display = ['title','Dname','Cname','content','notes']
+    list_display_links = ['title','Dname','Cname','content','notes']
+    list_filter = ['title','Dname','Cname','content','notes']
+    search_fields = ['title','Dname','Cname','content']
+    list_per_page: 25
+    
+    
+##################################################    
 admin.site.register(StudentDocument,DocumentAdmin)
 admin.site.register(StudentStatus,StateAdmin)
 admin.site.register(Notifications,NotificationsAdmin)
@@ -51,3 +61,4 @@ admin.site.register(City)
 admin.site.register(UserProfile)
 admin.site.register(TasjilDocuments,TasjilAdmin)
 admin.site.register(AllStudents,AllStudentsAdmin)
+admin.site.register(SendData)

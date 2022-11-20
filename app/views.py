@@ -314,8 +314,7 @@ def backend_all_student(request):
 
         user = request.user.userprofile
         all_student_list = AllStudents.objects.filter(
-            Q(name__icontains=q) | Q(state=q) | Q(
-                stage=q) | Q(study=q) 
+            Q(name__icontains=q) | Q(stage=q) | Q(study=q) 
         ).order_by('-created_at')
         all_student_list=all_student_list.filter(Dname=user.Dname,Cname=user.Cname,user=user.user)
         
@@ -332,3 +331,43 @@ def backend_all_student(request):
         'user': user,
     }
     return render(request, 'AllStudents/backend-allstudents.html', context)    
+
+##################### Edit All student ###########
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='login')
+def edit_allstudent(request):
+    if request.method == 'POST':
+        allstudents = AllStudents.objects.get(id=request.POST.get('id'))
+        if allstudents != None:
+            allstudents.name = request.POST.get('name')
+            allstudents.user = request.POST.get('user')
+            allstudents.Dname = request.POST.get('depart')
+            allstudents.Cname = request.POST.get('city')
+            allstudents.year = request.POST.get('year')
+            allstudents.stage = request.POST.get('stage')
+            allstudents.study = request.POST.get('study')
+            allstudents.state = request.POST.get('state')
+            allstudents.date = request.POST.get('date')
+            allstudents.note = request.POST.get('note')
+            allstudents.save()
+            messages.success(request, 'تم التعديل بنجاح !')
+            return HttpResponseRedirect('/backend-allstudents/')
+        
+##################################################
+@cache_control(no_cache=True , must_revalidate=True,no_store=True)
+@login_required(login_url='login')
+def all_student(request, std_id):
+    user = request.user.userprofile
+    allstudent = AllStudents.objects.get(id=std_id)
+    if allstudent != None:
+        return render(request, 'AllStudents/edit-allstudent.html', {'allstd': allstudent,'user':user,})  
+    
+################# Delete students ##################
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='login')
+def delete_allstudent(request, std_id):
+    allstudent = AllStudents.objects.get(id=std_id)
+    allstudent.delete()
+    messages.success(request, 'تم الحذف ! ...')
+
+    return HttpResponseRedirect('/backend-allstudents/')         

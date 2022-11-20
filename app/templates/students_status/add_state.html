@@ -35,23 +35,54 @@
                          </div>
 
                          <div class="input-group input-group-sm mb-3">
-                              <input type="text" class="form-control text-end" name="name" id="name" placeholder="اسم الطالب/ة" required  {% block value-name %}{% endblock value-name %}>
+                              <input type="text" class="form-control text-end" name="name" id="name-state" placeholder="اسم الطالب/ة" required  {% block value-name %}{% endblock value-name %}>
                               <span class="input-group-text side-label ">الاسم</span>
                          </div>
 
                         
-                              <input type="text" class="form-control text-end"  name="depart" hidden id="depart"  value="{{user.Dname}}" placeholder="القسم الذي تخرج منه" required {% block value-depart %}{% endblock value-depart %}>
+                              <input type="text" class="form-control text-end"  name="depart" hidden id="depart-state"  value="{{user.Dname}}" placeholder="القسم الذي تخرج منه" required {% block value-depart %}{% endblock value-depart %}>
                          
                          
                         
-                              <input type="text" class="form-control text-end"  name="city" hidden id="city" value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city %}{% endblock value-city %}>
+                              <input type="text" class="form-control text-end"  name="city" hidden id="city-state" value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city %}{% endblock value-city %}>
                        
 
                          <!-- choose stage -->
+                           <div class="input-group input-group-sm mb-3 ">
+                            
+                              <select dir="ltr" class="form-select" name="state" id="state-state" required {% block value-state %}{% endblock value-state %}>
+                                    {% block option-state %}
+                                   <option style="text-align:left;" value="" hidden>اختر الحالة</option>
+                                    {% endblock option-state %}
+                                   <option disabled></option>
+                                   <option >استضافة</option>
+                                   <option >نقل</option>
+                                    <option >تأجيل</option>
+                                   <option >رسوب</option>
+                                   <option >ترقين قيد</option>
+                              </select>
+                                <label class="input-group-text side-label">الحالة</label>
+                         </div>
+
+
+                           <div class="input-group input-group-sm mb-3 ">
+                             
+                              <select dir="ltr" class="form-select" name="study" id="study-state" required {% block value-study %}{% endblock value-study %}>
+                                   {% block option-study %}
+                                   <option style="text-align:left;" value="" hidden>اختر الدراسة</option>
+                                   {% endblock option-study %}
+                                   <option disabled></option>
+                                   <option >الصباحية</option>
+                                   <option >المسائية</option>
+                                   
+                              </select>
+                               <label class="input-group-text side-label">الدراسة</label>
+                         </div>
+                          
 
                             <div class="input-group input-group-sm mb-3 ">
                              
-                              <select dir="ltr" class="form-select " name="stage" id="stage" required {% block value-stage %}{% endblock value-stage %}>
+                              <select dir="ltr" class="form-select " name="stage" id="stage-state" required {% block value-stage %}{% endblock value-stage %}>
                               <label class="input-group-text ">المرحلة</label>
                                    {% block option-stage %}
                                    <option style="text-align:left;" value="" hidden>اختر المرحلة</option>
@@ -65,42 +96,16 @@
                                <span class="input-group-text side-label ">المرحلة</span>
                          </div>
 
-                            <div class="input-group input-group-sm mb-3 ">
-                             
-                              <select dir="ltr" class="form-select" name="study" id="study" required {% block value-study %}{% endblock value-study %}>
-                                   {% block option-study %}
-                                   <option style="text-align:left;" value="" hidden>اختر الدراسة</option>
-                                   {% endblock option-study %}
-                                   <option disabled></option>
-                                   <option >الصباحية</option>
-                                   <option >المسائية</option>
-                                   
-                              </select>
-                               <label class="input-group-text side-label">الدراسة</label>
-                         </div>
+                          
 
                          <!-- choose state -->
 
-                          <div class="input-group input-group-sm mb-3 ">
-                            
-                              <select dir="ltr" class="form-select" name="state" id="state" required {% block value-state %}{% endblock value-state %}>
-                                    {% block option-state %}
-                                   <option style="text-align:left;" value="" hidden>اختر الحالة</option>
-                                    {% endblock option-state %}
-                                   <option disabled></option>
-                                   <option >استضافة</option>
-                                   <option >نقل</option>
-                                    <option >تأجيل</option>
-                                   <option >رسوب</option>
-                                   <option >ترقين قيد</option>
-                              </select>
-                                <label class="input-group-text side-label">الحالة</label>
-                         </div>
+                        
                          
 
                             <div class="input-group input-group-sm mb-3 ">
                             
-                              <input type="text" class="form-control text-end" name="year" maxlength="10" id="year" placeholder="العام الدراسي" required {% block value-year %}{% endblock value-year %}>
+                              <input type="text" class="form-control text-end" name="year" maxlength="10" id="year-state" placeholder="العام الدراسي" required {% block value-year %}{% endblock value-year %}>
                                 <span class="input-group-text side-label text-center">العام الدراسي </span>
                          </div>
 
@@ -114,7 +119,7 @@
 
 
                          <div class="d-grid gap-2 mt-3">
-                              <button type="submit" class="btn btn-primary btn-sm"  id="btn-add">
+                              <button type="submit" class="btn btn-primary btn-sm"  id="btn-add-state">
                                   {% block btn-content %} <i class="fas fa-plus"></i>&nbsp;&nbsp; اضافة {% endblock btn-content %}
                               </button>
 
