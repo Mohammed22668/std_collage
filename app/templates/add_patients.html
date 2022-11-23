@@ -51,12 +51,27 @@
                               <input type="text" class="form-control text-end"  name="city" id="city" hidden value="{{user.Cname}}" placeholder="المحافظة" required {% block value-city %}{% endblock value-city %}>
                                {% comment %} <span class="input-group-text side-label text-center">المحافظة</span> {% endcomment %}
                          {% comment %} </div> {% endcomment %}
+                          <div class="input-group input-group-sm mb-3 ">
+                             
+                              <select dir="ltr" class="form-select" name="study" id="study-all" required {% block value-study-all %}{% endblock value-study-all %}>
+                                   {% block option-study %}
+                                   <option style="text-align:left;" value="" hidden>اختر الدراسة</option>
+                                   {% endblock option-study %}
+                                   <option disabled></option>
+                                   <option >الصباحية</option>
+                                   <option >المسائية</option>
+                                   
+                              </select>
+                               <label class="input-group-text side-label">الدراسة</label>
+                         </div>
 
                          <div class="input-group input-group-sm mb-3">
                             
                               <input type="text" class="form-control text-end" name="year" maxlength="10" id="year_std" placeholder="سنة التخرج" required {% block value-year %}{% endblock value-year %}>
                                 <span class="input-group-text side-label text-center">سنة التخرج</span>
                          </div>
+
+
 
                            <div class="input-group input-group-sm mb-3">
                              

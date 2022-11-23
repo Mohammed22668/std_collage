@@ -57,6 +57,7 @@ def add_studentDoc(request):
             and request.POST.get('user') \
             and request.POST.get('depart') \
             and request.POST.get('city') \
+            and request.POST.get('study') \
             and request.POST.get('year') \
             and request.POST.get('to') \
             and request.POST.get('Dnumber') \
@@ -67,6 +68,7 @@ def add_studentDoc(request):
             studentDoc.user = request.POST.get('user')
             studentDoc.Dname = request.POST.get('depart')
             studentDoc.Cname = request.POST.get('city')
+            studentDoc.study = request.POST.get('study')
             studentDoc.graduate_year = request.POST.get('year')
             studentDoc.to = request.POST.get('to')
             studentDoc.Dnumber = request.POST.get('Dnumber')
@@ -116,6 +118,7 @@ def edit_studentDoc(request):
             studentDoc.Dname = request.POST.get('depart')
             studentDoc.Cname = request.POST.get('city')
             studentDoc.graduate_year = request.POST.get('year')
+            studentDoc.study = request.POST.get('study')
             studentDoc.to = request.POST.get('to')
             studentDoc.Dnumber = request.POST.get('Dnumber')
             studentDoc.Ddate = request.POST.get('Ddate')
