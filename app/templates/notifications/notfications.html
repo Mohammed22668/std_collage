@@ -6,10 +6,10 @@
 
 {% block content %}
 
-<div class="container" style="padding-top:10px;">
-     <br><br>
+<div class="container" style="padding-top:0px;">
+     <br>
         <!--1 this section for search icon -->
-       <form action="">
+       <form action="" style="padding-top:0px;">
           <div class="input-group input-group-sm mb-3 mt-4">
                <input type="text" name="q" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
                <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
@@ -20,7 +20,7 @@
 
       <!-- 2 Table -->
 
-       <center>
+       <center >
           <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
                <thead class="table-secondary"> 
                   <div class="row">
@@ -32,26 +32,26 @@
                          <th class="col-lg-2 col-sm-12" style="width:12%;">الجهة</th>
                          <th class="col-lg-2 col-sm-12" style="width:21%;">العنوان</th>
                     </tr>
-              </div>
+                 </div>
                </thead>
                {% for post in all_post %}
                <tr>
-                     <td>
+                     <td id="responsive-border">
                          <a href="{{post.file.url}}" class="btn btn-primary "  target="_blank" title="show img">
                               <i class="fas fa-link">&nbsp;&nbsp; Show  </i>
                          </a>
                     </td>
 
-                    <td>{{post.note}}</td>
-                    <td>{{post.year}}</td>
-                    <td>{{post.date | date:'m/d/Y'}}</td>
-                    <td>{{post.get_from}}</td>
-                    <td>{{post.title}}</td>
+                    <td id="responsive-border"data-label="الملاحظات">{{post.note}}</td>
+                    <td id="responsive-border"data-label="العام الدراسي">{{post.year}}</td>
+                    <td id="responsive-border"data-label="تاريخ التنفيذ">{{post.date | date:'m/d/Y'}}</td>
+                    <td id="responsive-border"data-label="الجهة">{{post.get_from}}</td>
+                    <td id="responsive-border"data-label="العنوان">{{post.title}}</td>
                    
                {% endfor %}
           </table>
      </center>
-
+<br><br>
      </div>
 
 {% endblock content %}

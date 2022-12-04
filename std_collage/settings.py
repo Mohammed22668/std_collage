@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-t34(*)8q!rj7-#zu)(-vr&d4^m7e2vg&z1027#mn^zqp4u6g3_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # <<<<<<< HEAD
-DEBUG = False # sould be Fasle
+DEBUG = True  # sould be Fasle
 # =======
 # DEBUG = True
 # >>>>>>> 78e05a5ace1e3759a2a69517395374f19f963dd3
@@ -44,12 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-     'import_export',
+    'import_export',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'std_collage.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,15 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 
-
-
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'std_collage/static')
 ]
 
-## MEDIA ## 
+## MEDIA ##
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 # Default primary key field type
@@ -142,15 +140,12 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-LOGIN_REDIRECT_URL="backend"
-LOGOUT_REDIRECT_URL="login"
-
-
+LOGIN_REDIRECT_URL = "backend"
+LOGOUT_REDIRECT_URL = "login"
 
 
 # JAZZMIN_UI_TWEAKS = {
-   
+
 #     "navbar_small_text": False,
 #     "footer_small_text": False,
 #     "body_small_text": False,
@@ -183,11 +178,10 @@ LOGOUT_REDIRECT_URL="login"
 # }
 
 
-
 ##### Jazzmin settings #####
 
 JAZZMIN_SETTINGS = {
-    
+
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "شؤون الطلبة",
 
@@ -276,8 +270,8 @@ JAZZMIN_SETTINGS = {
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
     #     "books": [{
-    #         "name": "Make Messages", 
-    #         "url": "make_messages", 
+    #         "name": "Make Messages",
+    #         "url": "make_messages",
     #         "icon": "fas fa-comments",
     #         "permissions": ["books.view_book"]
     #     }]

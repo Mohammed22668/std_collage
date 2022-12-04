@@ -3,13 +3,12 @@
  ----------------*/
 
 html , body {
-    height: 100%;
+   
     margin: 0;
     max-width: 100%;
-    overflow-y: hidden;
+    
 
 }
-
 /*--------------------
  NAVBAR  
  ----------------*/
@@ -27,7 +26,7 @@ html , body {
 
  .wrapper{
     min-height:100%;
-    margin-bottom: -50px;
+    margin-bottom: -70px;
      
  }
 
@@ -37,7 +36,9 @@ html , body {
     
 }
 
-
+#allrights{
+    display:inline;
+   }
 /*--------------------
  PATIENT (add.html) 
  ----------------*/
@@ -50,41 +51,124 @@ html , body {
 select, option {
     text-align:right;   
 }
-
+#phone{
+    display: none;
+}
 /* -------------------------------
 --------------RESPONSIVE MODE ------------------- */
 @media (max-width:1024px){
     /*--TABLE--*/
-   .table thead {
+    .table tr td a {
+        width: 153%;
+        padding:10px;
+        border: 3px solid white;
+        border-radius: 12px;
+        padding: 5px;
+    }
+    
+    
+    #header{
+        display: none;
+        font-size: 8px;
+        height: 5%;
+        background-color: #111;
+       }
+    #header h2{
+        margin-left: 0;
+        font-size: 8px;
+    }
+    .table{
+        padding-left: 15px;
+    }
+    .table thead {
+        display: none;
+        
+    }
+    /* #chk_td{
+        display: none;
+    } */
+    .table, .table tbody, .table tr, .table td {
+      display: block;
+      width: 100%;
+      
+      
+    }
+    .table tr {
+        margin-bottom: 15px;
+        border:  1px solid #111;
+        border-radius: 5px;
+    }
+    .table td  {
+        text-align: left;
+       padding-right: 35%;
+       position:relative ;
+       border: 1px solid transparent;
+
+    }
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        right: 0;
+        width: 50%;
+        padding-right: 15px;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: right;
+    }
+    .table > thead > tr:first-child {
+        display: none;
+        margin-top: 5px;
+    }
+    /* Responsive Border */
+    #responsive-border{
+        border: 1px solid #a9a9a9;
+    }
+    #top-table {
+        background-color: #6c757d;
+        color: #fff;
+        font-weight: bold;
+    }
+    /* ------END TABLE----- */
+    /* enable the vertical scroll */
+    /* .table{
+        overflow-y: visible;
+    } */
+    #footer{
+        font-size: 12px;
+    }
+    #hpage{
+        display: none;
+        
+      }
+ }
+ /*------------------------------------ 
+ #RESPONSIVE MOOE -SMARTPHONE 500px
+ -------------------------------------*/
+ @media(max-width: 500px ){
+ 
+   /* FOOTER */
+   #allrights{
     display: none;
    }
-   .table, .table tbody, .table tr, table td {
-      display:block;
-      width:100%;
+   .wrapper{
+    min-height:100%;
+    margin-bottom: -40px;
+     
+ }
+   #footer{
+    width: 400px;
    }
-   .table tr {
-    margin-bottom: 15px;
-    border: 1px solid #111;
-    border-radius: 5px;
-   }
-   .table td {
-    text-align: right;
-    padding-left: 35%;
-    position: relative;
-    border:1px solid transparent;
-   }
-   .table td::before {
-    content:attr(data-table) ;
-    position: absolute;
-    left: 0;
-    width:50%;
-    padding-left: 15px;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: left;
-   }
-   .table > thead > tr:first-child{
+   #hpage{
     display: none;
-    margin-top: 5px;
-   } 
-}
+  }
+  .container {
+    width:115%;
+    padding: 0;
+    /* overflow-y: visible; */
+  }
+  .input-group .btn{
+    z-index: 0;
+  }
+
+ 
+ }
