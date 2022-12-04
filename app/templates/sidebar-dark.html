@@ -1,56 +1,48 @@
   {% load static %}
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{% static 'css/sidebar-dark.css' %}"> 
-
+  
 <nav class="sidebar close">
         <header>
-           <div class="image-text">
-                    <span class="image">
-                        <i class='bx bx-menu' id="btn" style="font-size:36px"> </i>
-                        <!--<i class='bx bx-chevron-left toggle' style="font-size:60px" ></i>-->
-                            <!--<img src="logo.png" alt="">-->
-                        </span>
-                <div class="text logo-text">
-                    <span class="name">Welcome</span>
-                    <span class="profession"> {{user.user}}</span>
+                <div class="image-text">
+                    
+                    <div class="text logo-text">
+                        <span class="name">Welcome</span>
+                        <span class="profession"> {{user.user}}</span>
+                    </div>
                 </div>
-            </div>
-            
+    
+                <i class='bx bx-menu toggle'></i>
         </header>
 
         <div class="menu-bar">
-            <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
-                <ul class="menu-links">
+            <div class="menu" >
+                <ul class="menu-links"style="padding: 0%;">
                     <li class="nav-link">
                         <a href="/backend/">
-                            <i class='bx bx-grid-alt icon'></i>
+                            <i class='bx bx-grid-alt icon' style="font-size:24px" ></i>
                             <span class="text nav-text">أضافه وثائق الطلبة</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="/backendState/">
-                            <i class='bx bx-user icon' ></i>
+                            <i class='bx bx-user icon' style="font-size:24px"></i>
                             <span class="text nav-text">حالات الطلبة</span>
                         </a>
                     </li>
-
+  
                     <li class="nav-link">
-                        <a href="/notifications/">
-                            <i class='bx bx-folder icon'></i>
-                            <span class="text nav-text">التعميم / الاشعارات</span>
-                        </a>
+                            <a href="/notifications/">
+                                <i class='bx bx-folder icon'style="font-size:24px"></i>
+                                <span class="text nav-text">التعميم / الاشعارات</span>
+                            </a>
                     </li>
+                    
 
                     <li class="nav-link">
                         <a href="/backend-allstudents/">
-                            <i class='bx bx-cog icon' ></i>
+                            <i class='bx bx-file icon' style="font-size:24px"></i>
                             <span class="text nav-text">مباشرات الطلبة</span>
                         </a>
                     </li>
@@ -61,17 +53,10 @@
             <div class="bottom-content">
                 <li class="">
                     <a href="#" id="btn-nav" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class='bx bx-log-out icon' class='bx bx-log-out' id="log_out" ></i>
+                        <i class='bx bx-log-out icon' class='bx bx-log-out' id="log_out" style="font-size:24px"></i>
                         <span class="text nav-text">Logout</span>
                     </a>
-                </li>
-
-                <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
+                </li> 
 
                     <div class="toggle-switch">
                         <span class="switch"></span>
@@ -83,7 +68,18 @@
     </nav>
 
 
- 
 
+    <div class="home">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/backend/">أضافه وثائق الطلبة</a>
+            <a href="/backendState/">حالات الطلبة </a>
+            <a href="/notifications/"> التعميم /  الاشعارات</a>
+            <a href="/backend-allstudents/"> مباشرات الطلبة </a>
+            <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class='bx bx-log-out icon' class='bx bx-log-out' id="log_out" style="font-size:24px; padding-left: 0px;"> تسجيل الخروج</i>
+            </a>
+          </div>
+          <span id="spanbtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> <span style="padding-right:1px; font-size: 16px; text-shadow: steelblue 1px 0 10px;  font-family: "Sofia", sans-serif;  font-weight: bold; background-color:black; "> كلية الامام الاعظم الجامعة/ قسم {{user.Dname}}  /{{user.Cname}}</span>
 
      <script src="{% static 'js/sidebar-dark.js' %}"></script>

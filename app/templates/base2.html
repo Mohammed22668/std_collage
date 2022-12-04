@@ -38,11 +38,12 @@
 
  <div class="wrapper">
 
-    <header>
-        <nav class="navbar navbar-expand-id navbar-dark "style="background-color:steelblue; text-align:center;">
-          
-             <h2 class="text-dark text-outline-primary" style=" margin-left:400px;">كلية الامام الاعظم الجامعة/ قسم  {{user.Dname}}  /{{user.Cname}}</h2>
-        </nav>
+    <header id="hpage">
+      <nav class="navbar navbar-expand-id navbar-dark "  style="background-color:steelblue; text-align:center;">
+        <h2 class="text-dark text-outline-primary font-effect-fire" style=" margin-left:500px; text-shadow: #fff 1px 0 10px; 
+        font-family: "Sofia", sans-serif;
+        font-size: 20px;"> كلية الامام الاعظم الجامعة/ قسم {{user.Dname}}  /{{user.Cname}} 
+    </nav>
     </header>
      
     {% block content %}

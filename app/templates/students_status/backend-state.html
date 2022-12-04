@@ -41,7 +41,7 @@
                </thead>
                {% for std in stdState %}
                <tr>
-                     <td>
+                     <td id="responsive-border">
                          <a href="/studentState/{{std.id}}" class="btn btn-primary " title="Edit patient">
                               <i class="fas fa-pen"></i>
                          </a>
@@ -51,13 +51,13 @@
                          </a>
                      </td>
                        
-                    <td>{{std.year}}</td>
-                    <td>{{std.state}}</td>
-                    <td>{{std.study}}</td>
-                    <td>{{std.stage}}</td>
-                    <td>{{std.Cname}}</td>
-                    <td>{{std.Dname}}</td>
-                    <td >{{std.name}}</td> 
+                    <td id="responsive-border"data-label="العام الدراسي ">{{std.year}}</td>
+                    <td id="responsive-border"data-label="الحالة">{{std.state}}</td>
+                    <td id="responsive-border"data-label="الدراسة">{{std.study}}</td>
+                    <td id="responsive-border"data-label="المرحلة">{{std.stage}}</td>
+                    <td id="responsive-border"data-label="المحافظة">{{std.Cname}}</td>
+                    <td id="responsive-border"data-label="القسم">{{std.Dname}}</td>
+                    <td id="responsive-border"data-label="اسم الطالب/ة"id="top-table">{{std.name}}</td> 
                </tr>
              <div class="modal fade" id="deleteModal{{std.pk}}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
