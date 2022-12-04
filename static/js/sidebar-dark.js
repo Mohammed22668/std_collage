@@ -16,3 +16,11 @@ changeside.addEventListener("click" , () =>{
 openside.addEventListener("click" , () =>{
     sidebar.classList.remove("close");
 })
+//////////////////////////////////////// PHONE MODE /////////////////////////////////////////////////////////// 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}

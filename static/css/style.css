@@ -3,14 +3,12 @@
  ----------------*/
 
 html , body {
-    min-height: 5000px;
-    height: 3000px;
+   
     margin: 0;
     max-width: 100%;
-    overflow-y: hidden;
+    
 
 }
-
 /*--------------------
  NAVBAR  
  ----------------*/
@@ -28,7 +26,7 @@ html , body {
 
  .wrapper{
     min-height:100%;
-    margin-bottom: -50px;
+    margin-bottom: -70px;
      
  }
 
@@ -38,7 +36,9 @@ html , body {
     
 }
 
-
+#allrights{
+    display:inline;
+   }
 /*--------------------
  PATIENT (add.html) 
  ----------------*/
@@ -58,10 +58,17 @@ select, option {
 --------------RESPONSIVE MODE ------------------- */
 @media (max-width:1024px){
     /*--TABLE--*/
-    .table td a{
-        width: 100%;
+    .table tr td a {
+        width: 153%;
+        padding:10px;
+        border: 3px solid white;
+        border-radius: 12px;
+        padding: 5px;
     }
+    
+    
     #header{
+        display: none;
         font-size: 8px;
         height: 5%;
         background-color: #111;
@@ -70,8 +77,12 @@ select, option {
         margin-left: 0;
         font-size: 8px;
     }
+    .table{
+        padding-left: 15px;
+    }
     .table thead {
         display: none;
+        
     }
     /* #chk_td{
         display: none;
@@ -79,9 +90,10 @@ select, option {
     .table, .table tbody, .table tr, .table td {
       display: block;
       width: 100%;
+      
+      
     }
     .table tr {
-        height: 3000px;
         margin-bottom: 15px;
         border:  1px solid #111;
         border-radius: 5px;
@@ -96,12 +108,12 @@ select, option {
     .table td::before{
         content: attr(data-label);
         position: absolute;
-        left: 0;
+        right: 0;
         width: 50%;
-        padding-left: 15px;
+        padding-right: 15px;
         font-size: 13px;
         font-weight: bold;
-        text-align: left;
+        text-align: right;
     }
     .table > thead > tr:first-child {
         display: none;
@@ -118,7 +130,7 @@ select, option {
     }
     /* ------END TABLE----- */
     /* enable the vertical scroll */
-    /* body{
+    /* .table{
         overflow-y: visible;
     } */
     #footer{
@@ -126,19 +138,37 @@ select, option {
     }
     #hpage{
         display: none;
+        
       }
  }
  /*------------------------------------ 
  #RESPONSIVE MOOE -SMARTPHONE 500px
  -------------------------------------*/
  @media(max-width: 500px ){
-   
+ 
    /* FOOTER */
    #allrights{
     display: none;
    }
+   .wrapper{
+    min-height:100%;
+    margin-bottom: -40px;
+     
+ }
+   #footer{
+    width: 400px;
+   }
    #hpage{
     display: none;
   }
+  .container {
+    width:115%;
+    padding: 0;
+    /* overflow-y: visible; */
+  }
+  .input-group .btn{
+    z-index: 0;
+  }
+
  
  }
