@@ -37,7 +37,8 @@
                          <div class="input-group input-group-sm mb-3">
                               
                               <input type="text" class="form-control text-end" name="name" id="name" placeholder="اسم الطالب/ة" required  {% block value-name %}{% endblock value-name %}>
-                              <span class="input-group-text side-label ">الاسم</span>
+                                <label class="input-group-text side-label">الاسم</label>
+
                          </div>
 
                          {% comment %} <div class="input-group input-group-sm mb-3"> {% endcomment %}
@@ -68,7 +69,8 @@
                          <div class="input-group input-group-sm mb-3">
                             
                               <input type="text" class="form-control text-end" name="year" maxlength="10" id="year_std" placeholder="سنة التخرج" required {% block value-year %}{% endblock value-year %}>
-                                <span class="input-group-text side-label text-center">سنة التخرج</span>
+                                   <label class="input-group-text side-label">سنة التخرج</label>
+
                          </div>
 
 
@@ -76,19 +78,20 @@
                            <div class="input-group input-group-sm mb-3">
                              
                               <input type="text" class="form-control text-end" name="to"  id="to" placeholder="الجهة الصادر اليها الوثيقة" required {% block value-to %}{% endblock value-to %}>
-                               <span class="input-group-text side-label text-center"> الى </span>
+                                <label class="input-group-text side-label">الى</label>
+
                          </div>
 
                           <div class="input-group input-group-sm mb-3">
                             
                               <input type="number" class="form-control text-end" name="Dnumber" maxlength="5" id="Dnumber" placeholder="العدد" required {% block value-Dnumber %}{% endblock value-Dnumber %}>
-                                <span class="input-group-text side-label text-center">رقم الوثيقة</span>
+                                <label class="input-group-text side-label">رقم الوثيقة</label>
                           </div>
 
                            <div class="input-group input-group-sm mb-3">
                            
                               <input type="date" class="form-control" name="Ddate"  id="Ddate"  required {% block value-Ddate %}{% endblock value-Ddate %}>
-                                 <span class="input-group-text side-label text-center">تاريخ الوثيقة</span>
+                                <label class="input-group-text side-label">تاريخ الوثيقة</label>
                          </div>
 
                         
