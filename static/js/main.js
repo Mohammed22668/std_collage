@@ -9,7 +9,8 @@ function validateAll(){
     var name = $("#name").val();
     var depart = $("#depart").val();
     var city = $("#city").val();
-    var year_std = $("#year").val();
+    var year_std = $("#year_std").val();
+    var study_all = $("#study-all").val();
     var to = $("#to").val();
     var Dnumber = $("#Dnumber").val();
     var Ddate = $("#Ddate").val();
@@ -28,11 +29,16 @@ function validateAll(){
           Swal.fire('Oops !',"يجب ملئ حقل المحافظة","Error");
         return false
     }
+      else if (study_all == ''){
+        Swal.fire('Oops !',"يجب ملئ حقل الدراسة","Error");
+        return false
+    }
     
       else if (year_std == ''){
         Swal.fire('Oops !',"يجب ملئ حقل سنة التخرج","Error");
         return false
     }
+
     
       else if (to == ''){
           Swal.fire('Oops !',"يجب ملئ حقل (الى)","Error");
