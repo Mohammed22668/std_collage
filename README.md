@@ -1,5 +1,5 @@
 # std_collage
 
-# Branch master for mohammed : Backend
+Branch master for mohammed : Backend
 
-# Branch noor for frontend
+Branch noor for frontend
