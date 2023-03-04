@@ -53,30 +53,25 @@ def backend(request):
 def add_studentDoc(request):
     if request.method == 'POST':
         user = request.user.userprofile
-        if request.POST.get('name') \
-            and request.POST.get('user') \
-            and request.POST.get('depart') \
-            and request.POST.get('city') \
-            and request.POST.get('study') \
-            and request.POST.get('year') \
-            and request.POST.get('to') \
-            and request.POST.get('Dnumber') \
-            and request.POST.get('Ddate') \
-                or request.POST.get('note'):
-            studentDoc = StudentDocument()
-            studentDoc.name = request.POST.get('name')
-            studentDoc.user = request.POST.get('user')
-            studentDoc.Dname = request.POST.get('depart')
-            studentDoc.Cname = request.POST.get('city')
-            studentDoc.study = request.POST.get('study')
-            studentDoc.graduate_year = request.POST.get('year')
-            studentDoc.to = request.POST.get('to')
-            studentDoc.Dnumber = request.POST.get('Dnumber')
-            studentDoc.Ddate = request.POST.get('Ddate')
-            studentDoc.note = request.POST.get('note')
-            studentDoc.save()
-            messages.success(request, 'تمت الاضافة بنجاح !')
-            return HttpResponseRedirect('/backend/')
+        name = request.POST.get('name')
+        user = request.POST.get('user')
+        Dname = request.POST.get('depart')
+        Cname = request.POST.get('city')
+        study = request.POST.get('study')
+        graduate_year = request.POST.get('year')
+        to = request.POST.get('to')
+        Dnumber = request.POST.get('Dnumber')
+        Ddate = request.POST.get('Ddate')
+        img_doc = request.FILES['img_doc']
+        
+        note = request.POST.get('note')
+        studentDoc = StudentDocument.objects.create(user=user,name=name,Dname=Dname,Cname=Cname,study=study,
+                                                    graduate_year=graduate_year,to=to,Dnumber=Dnumber,Ddate=Ddate,img_doc=img_doc,
+                                                    note=note)
+        print(f'studentDoc = {studentDoc.img_doc} , ')
+        studentDoc.save()
+        messages.success(request, 'تمت الاضافة بنجاح !')
+        return HttpResponseRedirect('/backend/')
     else:
         user = request.user.userprofile
         context={
@@ -103,6 +98,8 @@ def studentDoc(request, std_id):
     user = request.user.userprofile
     studentDoc = StudentDocument.objects.get(id=std_id)
     if studentDoc != None:
+        studentDoc.img_doc = '../static/img/imam.png'
+        print(f'studentDoc = {studentDoc.img_doc}')
         return render(request, 'edit.html', {'studentDoc': studentDoc,'user':user,})
 
 
@@ -123,7 +120,12 @@ def edit_studentDoc(request):
             studentDoc.Dnumber = request.POST.get('Dnumber')
             studentDoc.Ddate = request.POST.get('Ddate')
             studentDoc.note = request.POST.get('note')
-            studentDoc.save()
+            if request.FILES:
+                studentDoc.img_doc = request.FILES['img_doc']
+                print(f'img_doc = {studentDoc.img_doc}')
+                studentDoc.save()
+            else:       
+                studentDoc.save()
             messages.success(request,'تم التعديل بنجاح !')
             return HttpResponseRedirect('/backend/')
         

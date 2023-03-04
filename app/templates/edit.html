@@ -38,7 +38,13 @@
 {% block value-gender %} value="{{studentDoc.gender}}"   {% endblock value-gender %} {% endcomment %}
 
 
+
+
+{% block value-img_doc %} value={{studentDoc.img_doc.url}} {% endblock value-img_doc %}
+
+
 {% block value-note %}{{studentDoc.note}}{% endblock value-note %}
+
 
 
 {% block btn-content %} <i class="fas fa-hdd"></i>&nbsp;&nbsp; Save {% endblock btn-content %}

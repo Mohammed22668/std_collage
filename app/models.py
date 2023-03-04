@@ -48,7 +48,9 @@ class StudentDocument(models.Model):
     Dnumber = models.CharField(max_length=20,verbose_name="رقم الوثيقة")
     Ddate = models.DateField(verbose_name="تاريخ الوثيقة",blank=True,null=True)
     note = models.TextField(blank=True,null=True)
-    check_post = models.BooleanField(blank=True,null=True,default=False)
+    img_doc = models.FileField(upload_to='stdDoc/%y/',null=True,blank=True,verbose_name="صورة الوثيقة")
+    img_qr = models.FileField(upload_to='stdDoc/%y/',null=True,blank=True,verbose_name="صورة الباركود")
+    check_post = models.BooleanField(null=True,default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -57,8 +59,7 @@ class StudentDocument(models.Model):
     class Meta:
         verbose_name_plural = "جدول وثائق الطلبة"
     
-# Department,on_delete=models.PROTECT,    
-# City,on_delete=models.PROTECT
+
 
 ################################# User Profile  #####################################################
 class UserProfile(models.Model):
