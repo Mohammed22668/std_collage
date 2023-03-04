@@ -99,7 +99,7 @@ def studentDoc(request, std_id):
     studentDoc = StudentDocument.objects.get(id=std_id)
     if studentDoc != None:
         studentDoc.img_doc = '../static/img/imam.png'
-        print(f'studentDoc = {studentDoc.img_doc}')
+        
         return render(request, 'edit.html', {'studentDoc': studentDoc,'user':user,})
 
 
@@ -122,7 +122,7 @@ def edit_studentDoc(request):
             studentDoc.note = request.POST.get('note')
             if request.FILES:
                 studentDoc.img_doc = request.FILES['img_doc']
-                print(f'img_doc = {studentDoc.img_doc}')
+                
                 studentDoc.save()
             else:       
                 studentDoc.save()
