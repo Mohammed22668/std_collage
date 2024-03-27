@@ -10,7 +10,7 @@ from django.views.static import serve
 urlpatterns = [
     path('userAdminpnl/', admin.site.urls),
     path('', views.frontend , name='frontend'), # Home page
-    path('login/',include('django.contrib.auth.urls')),
+    path('',include('django.contrib.auth.urls')),
     path('backend/', views.backend,name='backend'),
     path('add_studentDoc/', views.add_studentDoc,name="add_studentDoc"),
     path('delete_studentDoc/<str:std_id>', views.delete_studentDoc,name="delete_studentDoc"),
