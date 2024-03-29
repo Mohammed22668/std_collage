@@ -217,6 +217,8 @@ class SendData(models.Model):
         verbose_name_plural = "البريد"        
             
     
+    
+    
 
            
 
@@ -239,3 +241,4 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+
