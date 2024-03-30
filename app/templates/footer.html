@@ -1,26 +1,62 @@
-  <footer class="bg-dark text-center text-lg-start  " id="footer" style="color:#fff;">
-    <div class="text-center p-3" style="background-color:rgba(0, 0, 0,0.2);">
-       <span id="allrights"> Copyright &copy; {% now "Y" %} All rights reserved | Made with  
-        <i class="text-danger fas fa-code" style="font-size:15px"></i> by </span>
-        <a href="#" target="_blank" style="color:#0dcaf0; text-decoration:none;">مركز الحاسوب / محمد الخفاجي  & نور عبد الأمير </a>
-    </div>
-   </footer>
+<footer
+  class="bg-dark text-center text-lg-start"
+  id="footer"
+  style="color: #fff"
+>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    <span id="allrights">
+      Copyright &copy; {% now "Y" %} All rights reserved | Made with
+      <i class="text-danger fas fa-code" style="font-size: 15px"></i> by
+    </span>
+    <a href="#" target="_blank" style="color: #0dcaf0; text-decoration: none"
+      >مركز الحاسوب / محمد الخفاجي & نور عبد الأمير
+    </a>
+  </div>
+</footer>
 
-   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"> <i class="fas fa-sign-out-alt"></i> Logout</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body text-center">
-        <span class="text-danger"><i class="fas fa-sign-out-alt fa-3x mt-4"></i></span>
-        <div class="mt-4 mb-4 text-danger">هل انت متأكد انك تريد الخروج من النظام ؟</div>
+        <span class="text-danger"
+          ><i class="fas fa-sign-out-alt fa-3x mt-4"></i
+        ></span>
+        <div class="mt-4 mb-4 text-danger">
+          هل انت متأكد انك تريد الخروج من النظام ؟
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">الغاء</button>
-        <a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger btn-sm">خروج</a>
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm"
+          data-bs-dismiss="modal"
+        >
+          الغاء
+        </button>
+        <a
+          href="{% url 'logout' %}"
+          type="button"
+          class="btn btn-outline-danger btn-sm"
+          >خروج</a
+        >
       </div>
     </div>
   </div>

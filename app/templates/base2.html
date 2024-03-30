@@ -2,76 +2,71 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} كلية الامام الاعظم الجامعة {% endblock title %}</title>
-   
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %} كلية الامام الاعظم الجامعة {% endblock title %}
+    </title>
+
     <!-- new design start  -->
 
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  <!-- ===== Fontawesome CDN Link ===== -->
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== Fontawesome CDN Link ===== -->
+
     <!-- new design end -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
 
-    <link rel="shortcut icon" href="{% static 'img/std-doc.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-      
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
 
-</head>
-<body style="overflow: scroll;">
+    <link rel="shortcut icon" href="{% static 'img/std-doc.ico' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body style="overflow: scroll">
+    {% include 'sidebar-dark.html' %}
+    <!--  CATEGORY CHART -->
 
+    {% comment %} {% include "navbar.html" %}
+    <!--  CATEGORY CHART -->
+    {% endcomment %}
 
-{% comment %} {% include 'sidebar.html' %} {% endcomment %}
+    <div class="wrapper">
+      <header id="hpage">
+        <nav
+          class="navbar navbar-expand-id navbar-dark"
+          style="background-color: steelblue; text-align: center"
+        >
+          <h2 class="text-dark text-outline-primary font-effect-fire" style="
+          margin-left:500px; text-shadow: #fff 1px 0 10px; font-family: "Sofia",
+          sans-serif; font-size: 20px;"> جامعة بغداد - كلية الادارة و الاقتصاد -
+          قسم {{user.Dname}}
+        </nav>
+      </header>
 
-{% include 'sidebar-dark.html' %}
-<!--  CATEGORY CHART -->
+      {% block content %} {% endblock content %}
+    </div>
 
-  {% comment %} {% include "navbar.html" %}
-<!--  CATEGORY CHART --> {% endcomment %}
+    {% include 'footer.html' %}
 
- <div class="wrapper">
-
-    <header id="hpage">
-      <nav class="navbar navbar-expand-id navbar-dark "  style="background-color:steelblue; text-align:center;">
-        <h2 class="text-dark text-outline-primary font-effect-fire" style=" margin-left:500px; text-shadow: #fff 1px 0 10px; 
-        font-family: "Sofia", sans-serif;
-        font-size: 20px;"> كلية الامام الاعظم الجامعة/ قسم {{user.Dname}}  /{{user.Cname}} 
-    </nav>
-    </header>
-     
-    {% block content %}
-
-
-    
-
-    
-    {% endblock content %} 
-      
-         </div>
-          
-
-
- {% include 'footer.html' %}
-
-    
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>    
-   <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/dashbord_js.js' %}"></script>
-
-
-</body>
+  </body>
 </html>

@@ -50,15 +50,20 @@ class SendDataAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_filter = ['title','Dname','Cname','content','notes']
     search_fields = ['title','Dname','Cname','content']
     list_per_page: 25
-    
+   
+   
+
+
+class AdminUserProfile(admin.ModelAdmin):
+    exclude = ('Cname',)
     
 ##################################################    
 admin.site.register(StudentDocument,DocumentAdmin)
 admin.site.register(StudentStatus,StateAdmin)
 admin.site.register(Notifications,NotificationsAdmin)
 admin.site.register(Department)
-admin.site.register(City)
-admin.site.register(UserProfile)
+# admin.site.register(City)
+admin.site.register(UserProfile ,AdminUserProfile )
 admin.site.register(TasjilDocuments,TasjilAdmin)
 admin.site.register(AllStudents,AllStudentsAdmin)
 admin.site.register(SendData)
